@@ -1,4 +1,94 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-04-11T20:31:30+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Monos</title><subtitle>Themed by ejjoo</subtitle><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/jekyll/update/2023/04/11/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2023-04-11T15:46:32+09:00</published><updated>2023-04-11T15:46:32+09:00</updated><id>http://localhost:4000/jekyll/update/2023/04/11/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2023/04/11/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-04-12T19:31:45+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Monos</title><subtitle>Themed by ejjoo</subtitle><entry><title type="html">[WslRegisterDistribution failed with error: 0x80370114] wsl로 ubuntu 설치 시 발생하는 오류</title><link href="http://localhost:4000/issue/2023/04/12/Issue-WslRegisterDistribution.html" rel="alternate" type="text/html" title="[WslRegisterDistribution failed with error: 0x80370114] wsl로 ubuntu 설치 시 발생하는 오류" /><published>2023-04-12T18:15:32+09:00</published><updated>2023-04-12T18:15:32+09:00</updated><id>http://localhost:4000/issue/2023/04/12/Issue-WslRegisterDistribution</id><content type="html" xml:base="http://localhost:4000/issue/2023/04/12/Issue-WslRegisterDistribution.html">&lt;p&gt;깃헙 블로그를 개설하며 생겼던 이슈사항을 포스팅해볼게요!&lt;br /&gt;&lt;br /&gt;
+참고로 저는 &lt;a href=&quot;https://supermemi.tistory.com/entry/%EB%82%98%EB%A7%8C%EC%9D%98-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0-Git-hub-blog-GitHubio?category=997749&quot;&gt;SuperMemi’s Study님의 깃헙 블로그 만들기&lt;/a&gt; 3단계를 따라가며 만들었습니다!&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;상황--wsl-로-ubuntu-설치-시-error-발생&quot;&gt;상황 : wsl 로 ubuntu 설치 시 error 발생&lt;br /&gt;&lt;/h3&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wsl &lt;span class=&quot;nt&quot;&gt;--install&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; Ubuntu
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;img src=&quot;/public/img/2023-04-12-1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;→ 설치 실패&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;먼저-시도했지만-되지-않았던-방법도-올릴게요&quot;&gt;먼저 시도했지만 되지 않았던 방법도 올릴게요!&lt;/h3&gt;
+&lt;p&gt;먼저 해보시고 안되면 아래 방법을 사용하시면 될 것 같아요~&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://answers.microsoft.com/en-us/insider/forum/all/wsl-2-installing-linux-failed-error-code/bae391d1-4215-4d93-b0c4-3d96404a7c74&quot;&gt;시도한 방법 1&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;다음 해결법 5단계에서 “C:\WINDOWS\System32\vmcompute.exe”를 찾을 수 없음&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.reddit.com/r/bashonubuntuonwindows/comments/zlf0js/error_0x80370114_but_vmcomputeexe_doesnt_even/&quot;&gt;시도한 방법 2&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;세번째 댓글의 해결법으로 해결한 사람이 몇몇 보이나..  난 저 과정(’Windows 하이퍼바이저 플랫폼’을 켜기)을 거쳐도 ‘vmcompute.exe’ 가 생성되지 않음&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;내가-해결한-방법&quot;&gt;내가 해결한 방법&lt;/h3&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;해결 : wsl 기본 설정 버전을 2에서 1로 낮춤&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wsl &lt;span class=&quot;nt&quot;&gt;--set-default-version&lt;/span&gt; 1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;version 1로 잘 설정되어있는지 확인&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wsl &lt;span class=&quot;nt&quot;&gt;--status&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;다시 실행&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wsl &lt;span class=&quot;nt&quot;&gt;--install&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; Ubuntu
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;→ “~~~ Enter new UNIX username” 결과 출력 (설치 성공)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/public/img/2023-04-12-2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;참고로, UNIX username은 1~32자 사이의 소문자 알파벳, 숫자, 밑줄(&lt;em&gt;), 하이픈(-)으로만 이루어져야 하며, 첫 글자는 반드시 소문자 알파벳이어야 한다. (정규표현식 : ^[a-z][a-z0-9&lt;/em&gt;-]{0,31}$)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;왜-안됐을까&quot;&gt;왜 안됐을까?&lt;/h3&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;a href=&quot;https://www.reddit.com/r/bashonubuntuonwindows/comments/zlf0js/error_0x80370114_but_vmcomputeexe_doesnt_even/&quot;&gt;시도한 방법 2&lt;/a&gt; 를 했을 때 안되었던 이유들과 해결법을 생각한 과정을 남깁니다…&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;먼저 &lt;code class=&quot;highlighter-rouge&quot;&gt;vmcompute.exe&lt;/code&gt;가 왜 계속 안생겼는지…&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;vmcompute.exe란?
+    &lt;blockquote&gt;
+      &lt;p&gt;Windows 하이퍼바이저 플랫폼(=Windows의 서브시스템으로, 여러 가상화 플랫폼을 호스팅하고 사용할 수 있도록 함)에서 제공되는 기능 중 하나인 Hyper-V 가상 머신(Windows의 가상화 기술 중 하나로, Windows 환경에서 가상 머신을 만들고 실행할 수 있도록 함)을 관리하는데 사용되는 프로세스
+&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;내 컴퓨터는 Windows 11 Home 버전 → Hyper-V 기능을 지원하지 않음 (Windows 11 Pro, Enterprise, Education 버전에서만 지원) → vmcompute.exe 파일이 없음 → 오류 발생
+&lt;br /&gt;&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;해결법 : Hyper-V를 설치하도록 업그레이드하기 (이런 방법이 있다고 하지만, 난 Hyper-V 기능을 필요로 하지 않는 wsl1을 사용하기로 선택함!)
+&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;그럼-wsl1과-wsl2의-차이점은&quot;&gt;그럼 &lt;code class=&quot;highlighter-rouge&quot;&gt;WSL1&lt;/code&gt;과 &lt;code class=&quot;highlighter-rouge&quot;&gt;WSL2&lt;/code&gt;의 차이점은?&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;WSL1&lt;/code&gt; : 가상화 사용X, 윈도우 시스템 콜을 사용하여 Linux 바이너리 실행&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;WSL2&lt;/code&gt; : 가상머신기술(Hyper-V)를 사용하여 Linux 커널 실행&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/h2&gt;
+
+&lt;p&gt;&lt;br /&gt;이후 &lt;code class=&quot;highlighter-rouge&quot;&gt;Jekyll&lt;/code&gt; 설치하며 생긴 이슈를 포스팅할 계획입니다~! 안녕~&lt;/p&gt;</content><author><name></name></author><category term="WSL" /><category term="Ubuntu" /><summary type="html">wsl1 --install -d Ubuntu 명령어 실행 시 발생하는 오류로, WSL 버전을 1로 낮추어 해결하자.</summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/jekyll/update/2023/04/11/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2023-04-11T15:46:32+09:00</published><updated>2023-04-11T15:46:32+09:00</updated><id>http://localhost:4000/jekyll/update/2023/04/11/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2023/04/11/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
 
 &lt;p&gt;Jekyll requires blog post files to be named according to the following format:&lt;/p&gt;
 
