@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="GreenPickle's Story" /></head>
+<style>@import url(/public/css/syntax/monokai.css);</style>
+  <title>GreenPickle's Story</title>
+  <!-- <link href="/public/css/bootstrap.min.css" rel="stylesheet"> -->
+
+  <link href="/public/css/style.css" rel="stylesheet">
+  <body>
+  	<div class="container"> 
+		<div class="sidebar">
+			<div class="sidebar-item sidebar-header">
+	<div class='sidebar-brand'>
+		<a href="/about/">GreenPickle's Story</a>
+	</div>
+	<p class="lead">Managed by saeyoun</p></div>
+
+<div class="sidebar-item sidebar-nav">
+	<ul class="nav">
+      <li class="nav-title">Pages</li>
+	  <li>
+	  	<a class="nav-item" href="/">Articles</a>
+	  </li>
+	  
+	  
+	    
+	  
+	    
+	      
+	        <li>
+	        	<a class="nav-item" href="/about/">
+	            	About
+	            </a>
+	        </li>
+	      
+	    
+	  
+	    
+	      
+	        <li>
+	        	<a class="nav-item" href="/about/">
+	            	About
+	            </a>
+	        </li>
+	      
+	    
+	  
+	    
+	      
+	    
+	  
+	    
+	  
+	    
+	  
+	    
+	  
+	</ul>
+</div>
+
+<div class="sidebar-item sidebar-nav">
+  	<ul class="nav">
+			<li class="nav-title">Categories</li>
+	    
+	    <li>
+	    	<a class="nav-item" href="/category/#sample">
+				<span class="name">sample</span>
+				<span class="badge">1</span>
+	    	</a>
+ 		</li>
+	    
+	    <li>
+	    	<a class="nav-item" href="/category/#jekyll">
+				<span class="name">jekyll</span>
+				<span class="badge">2</span>
+	    	</a>
+ 		</li>
+	    
+	    <li>
+	    	<a class="nav-item" href="/category/#update">
+				<span class="name">update</span>
+				<span class="badge">2</span>
+	    	</a>
+ 		</li>
+	    
+	    <li>
+	    	<a class="nav-item" href="/category/#Issue">
+				<span class="name">Issue</span>
+				<span class="badge">2</span>
+	    	</a>
+ 		</li>
+	    
+	    <li>
+	    	<a class="nav-item" href="/category/#Algorithm">
+				<span class="name">Algorithm</span>
+				<span class="badge">1</span>
+	    	</a>
+ 		</li>
+	    
+	  </nav>
+	</ul>
+</div>
+
+<div class="sidebar-item sidebar-footer">
+	<p>Powered by <a href="https://github.com/jekyll/jekyll">Jekyll</a></p>
+</div>
+		</div>
+		<div class="content">
+			<article class="post">
+	<header class="post-header">
+		<div class="post-title"> 
+			[c++ 알고리즘 공부] String Parsing
+		</div>
+		<time class="post-date dt-published" datetime="2023-04-14T19:14:17+09:00" itemprop="datePublished">2023/04/14
+		</time>		
+	</header>
+
+	<div class="post-content">
+		<h2 id="level-24-25">LEVEL 24 25</h2>
+
+<p>LANGUAGE: C++
+OVERVIEW: Parsing</p>
+
+<h2 id="string">String</h2>
+
+<ul>
+  <li>
+    <p>String이란?</p>
+
+    <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="cp">#include &lt;iostream&gt;
+</span>  <span class="cp">#include &lt;string&gt;
+</span>  <span class="c1">// = C++의 string class</span>
+    
+  <span class="cp">#include &lt;cstring&gt;
+</span>  <span class="c1">// = C의 string.h</span>
+  <span class="c1">// = #include &lt;string.h&gt;</span>
+  <span class="c1">// strlen(a),  strcpy(a) ...</span>
+    
+  <span class="c1">// 이제 사용 X</span>
+  <span class="c1">// C,C++의 문자열 불편 이유</span>
+  <span class="c1">// 문자열을 char 배열에 넣어야 함</span>
+  <span class="c1">// 비교가 안돼서 strcmp</span>
+  <span class="c1">// 복사가 안돼서 strcpy</span>
+  <span class="c1">// for문 로직 포함되어 있는 streln (효율성X)</span>
+    
+  <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+  	<span class="n">string</span> <span class="n">str</span><span class="o">=</span><span class="s">"BBQ"</span><span class="p">;</span>
+  	<span class="n">str</span><span class="o">=</span><span class="s">"WER"</span><span class="p">;</span>
+  	<span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">str</span><span class="p">;</span>
+    
+  	<span class="k">if</span><span class="p">(</span><span class="n">str</span><span class="o">==</span><span class="s">"WER"</span><span class="p">){</span>
+  		<span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"같다"</span>
+  	<span class="p">}</span>
+    
+  	<span class="n">string</span> <span class="n">strArray</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span> <span class="c1">//string 배열</span>
+  	<span class="kt">char</span> <span class="n">firstAlphabet</span><span class="o">=</span><span class="n">str</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span> <span class="c1">//string 특정 원소 </span>
+  	<span class="kt">int</span> <span class="n">strLen</span><span class="o">=</span><span class="n">str</span><span class="p">.</span><span class="n">length</span><span class="p">();</span> <span class="c1">//=str.size() //for문 로직 포함X (효율성O)</span>
+  <span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>string 역순출력</p>
+
+    <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1">//역순 출력</span>
+    
+  <span class="cp">#include &lt;iostream&gt;
+</span>  <span class="cp">#include &lt;string&gt;
+</span>  <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+    
+  <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  	<span class="n">string</span> <span class="n">str</span><span class="p">;</span>
+  	<span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">str</span><span class="p">;</span>
+  	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">str</span><span class="p">.</span><span class="n">length</span><span class="p">()</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
+  		<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+  	<span class="p">}</span>
+  <span class="p">}</span>
+</code></pre></div>    </div>
+
+    <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1">//string 배열에서 역순 출력</span>
+    
+  <span class="cp">#include &lt;iostream&gt;
+</span>  <span class="cp">#include &lt;string&gt;
+</span>  <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+    
+  <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  	<span class="n">string</span> <span class="n">bucket</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="s">"ABBT"</span><span class="p">,</span><span class="s">"BTBT"</span><span class="p">,</span><span class="s">"BBBT"</span><span class="p">,</span><span class="s">"KFC"</span> <span class="p">};</span>
+  	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+  		<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">bucket</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">length</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">j</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
+  			<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">bucket</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+  		<span class="p">}</span>
+  		<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+  	<span class="p">}</span>
+  <span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>string 덧셈</p>
+
+    <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1">//string 덧셈</span>
+    
+  <span class="n">string</span> <span class="n">a</span><span class="o">=</span><span class="s">"ABC"</span><span class="p">;</span>
+  <span class="n">string</span> <span class="n">b</span><span class="o">=</span><span class="s">"DEF"</span><span class="p">;</span>
+  <span class="n">string</span> <span class="n">c</span><span class="o">=</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="o">+</span><span class="s">"G"</span><span class="p">;</span> <span class="c1">//ABCDEFG</span>
+  <span class="n">b</span><span class="o">+=</span><span class="s">"DEF"</span> <span class="c1">//DEFDEF</span>
+  <span class="n">string</span> <span class="n">d</span><span class="o">=</span><span class="s">"ABC"</span><span class="o">+</span><span class="s">"DEF"</span><span class="p">;</span> <span class="c1">//X (연산자 오버로딩으로 작동되기 때문에 string class가 적어도 하나 필요)</span>
+  <span class="n">string</span> <span class="n">d</span><span class="o">=</span><span class="n">string</span><span class="p">(</span><span class="s">"ABC"</span><span class="p">)</span><span class="o">+</span><span class="n">string</span><span class="p">(</span><span class="s">"DEF"</span><span class="p">);</span><span class="c1">//ABCDEF</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>class 개념 : method 포함 가능</p>
+
+    <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1">//C struct : method 내장 불가능</span>
+  <span class="c1">//C++ struct : method 내장 가능 (=class)</span>
+    
+  <span class="c1">//class : method 내장 가능 (ex. struct, string)</span>
+  <span class="c1">//string의 method : length(), find(), ...</span>
+  <span class="k">struct</span> <span class="n">structEX</span><span class="p">{</span>
+  	<span class="kt">int</span> <span class="n">a</span><span class="p">;</span>
+  	<span class="kt">int</span> <span class="n">b</span><span class="p">;</span>
+  	<span class="kt">void</span> <span class="n">funcEX</span><span class="p">(){</span>
+  		<span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"#"</span><span class="p">;</span>
+  	<span class="p">}</span>
+  <span class="p">};</span>
+    
+  <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+  	<span class="n">structEX</span> <span class="n">varEX</span><span class="p">;</span>
+  	<span class="n">varEX</span><span class="p">.</span><span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+  	<span class="n">varEX</span><span class="p">.</span><span class="n">b</span><span class="o">=</span><span class="mi">2</span><span class="p">;</span>
+  	<span class="n">varEX</span><span class="p">.</span><span class="n">funcEX</span><span class="p">();</span>
+  <span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>String의 method : find()</p>
+
+    <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1">//1. string의 method : find()</span>
+    
+  <span class="n">string</span> <span class="n">stringEX</span><span class="o">=</span><span class="s">"SBKFCSDFSD"</span>
+  <span class="kt">int</span> <span class="n">kfcIdx</span><span class="o">=</span><span class="n">stringEX</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">"KFC"</span><span class="p">);</span>
+  <span class="kt">int</span> <span class="n">kfcIdx2</span><span class="o">=</span><span class="n">stringEX</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">"KFC"</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span> <span class="c1">//4번 인덱스부터 찾아라 (default=0)</span>
+  <span class="n">cout</span><span class="o">&lt;&lt;</span> <span class="n">kfcIdx</span><span class="p">;</span> <span class="c1">//2 (없으면 -1)</span>
+</code></pre></div>    </div>
+
+    <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1">//string 배열에서 BB 가 있으면 O 없으면 X 출력</span>
+    
+  <span class="cp">#include &lt;iostream&gt;
+</span>  <span class="cp">#include &lt;string&gt;
+</span>  <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+    
+  <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  	<span class="n">string</span> <span class="n">bucket</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="s">"ABBT"</span><span class="p">,</span><span class="s">"BTBT"</span><span class="p">,</span><span class="s">"BBBT"</span><span class="p">,</span><span class="s">"KFC"</span> <span class="p">};</span>
+  	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+  		<span class="k">if</span> <span class="p">(</span><span class="n">bucket</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">find</span><span class="p">(</span><span class="s">"BB"</span><span class="p">)</span><span class="o">!=-</span><span class="mi">1</span><span class="p">)</span><span class="n">cout</span> <span class="o">&lt;&lt;</span><span class="s">"O"</span><span class="p">;</span>
+  		<span class="k">else</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"X"</span><span class="p">;</span>
+  	<span class="p">}</span>
+  <span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>String의 method : substring()</p>
+
+    <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1">//2. string의 method : substring()</span>
+  <span class="c1">// insert, delete, ...</span>
+    
+  <span class="n">string</span> <span class="n">dummy</span><span class="o">=</span><span class="s">"ABCSDFW"</span><span class="p">;</span>
+  <span class="n">string</span> <span class="n">ret</span><span class="o">=</span><span class="n">dummy</span><span class="p">.</span><span class="n">substr</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span><span class="c1">//2번 idx부터 4글자 추출 =CSDF</span>
+  <span class="n">string</span> <span class="n">retEnd</span><span class="o">=</span><span class="n">dummy</span><span class="p">.</span><span class="n">substr</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span><span class="c1">//2번 idx부터 끝까지</span>
+</code></pre></div>    </div>
+
+    <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1">//A~Z 문자열 만들고 a index부터 b index까지 출력</span>
+    
+  <span class="cp">#include &lt;iostream&gt;
+</span>  <span class="cp">#include &lt;string&gt;
+</span>  <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+    
+  <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  	<span class="n">string</span> <span class="n">str</span><span class="p">;</span>
+  	<span class="k">for</span> <span class="p">(</span><span class="kt">char</span> <span class="n">i</span> <span class="o">=</span> <span class="sc">'A'</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="sc">'Z'</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+  		<span class="n">str</span> <span class="o">+=</span> <span class="n">i</span><span class="p">;</span>
+  	<span class="p">}</span>
+  <span class="c1">//char 연결 가능</span>
+    
+  	<span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">;</span>
+  	<span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span> <span class="o">&gt;&gt;</span> <span class="n">b</span><span class="p">;</span>
+    
+  	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">str</span><span class="p">.</span><span class="n">substr</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">-</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+  <span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>parsing : 1개 parsing</p>
+
+    <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1">//parsing</span>
+  <span class="c1">//[] 안의 값만 뽑아내기</span>
+  <span class="c1">//ex. 금융권 회사 기출문제</span>
+</code></pre></div>    </div>
+
+    <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1">//입력받은 문자열에서 [] 안의 값 parsing</span>
+    
+  <span class="cp">#include &lt;iostream&gt;
+</span>  <span class="cp">#include &lt;string&gt;
+</span>  <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+    
+  <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  	<span class="n">string</span> <span class="n">str</span><span class="p">;</span>
+  	<span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">str</span><span class="p">;</span>
+    
+  	<span class="kt">int</span> <span class="n">startIdx</span> <span class="o">=</span> <span class="n">str</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">"["</span><span class="p">);</span>
+  	<span class="kt">int</span> <span class="n">endIdx</span> <span class="o">=</span> <span class="n">str</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">"]"</span><span class="p">,</span><span class="n">startIdx</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span> <span class="c1">//startIdx+1 넣어야 효율성 증대</span>
+    
+  	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">str</span><span class="p">.</span><span class="n">substr</span><span class="p">(</span><span class="n">startIdx</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">endIdx</span> <span class="o">-</span> <span class="n">startIdx</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+  <span class="p">}</span>
+</code></pre></div>    </div>
+
+    <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1">//string 배열에서 [] 있는 string만 parsing하여 출력</span>
+    
+  <span class="cp">#include &lt;iostream&gt;
+</span>  <span class="cp">#include &lt;string&gt;
+</span>  <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+    
+  <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  	<span class="n">string</span> <span class="n">str</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="s">"ABCQ"</span><span class="p">,</span><span class="s">"B[4]R"</span><span class="p">,</span><span class="s">"CCDA"</span><span class="p">,</span><span class="s">"BT[15]"</span> <span class="p">};</span>
+  	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+  		<span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">find</span><span class="p">(</span><span class="s">"["</span><span class="p">);</span>
+  		<span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">find</span><span class="p">(</span><span class="s">"]"</span><span class="p">,</span><span class="n">a</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+  		<span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="k">continue</span><span class="p">;</span>
+  		<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">substr</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">b</span> <span class="o">-</span> <span class="n">a</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+  	<span class="p">}</span>
+  <span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>parsing : n개 parsing</p>
+
+    <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1">//[] 안의 숫자의 합 출력</span>
+    
+  <span class="cp">#include &lt;iostream&gt;
+</span>  <span class="cp">#include &lt;string&gt;
+</span>  <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+    
+  <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  	<span class="n">string</span> <span class="n">str</span> <span class="o">=</span> <span class="s">"B[45]AB[9944]"</span><span class="p">;</span>
+  	<span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+  	<span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  	<span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">){</span>
+  		<span class="n">a</span> <span class="o">=</span> <span class="n">str</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">"["</span><span class="p">,</span><span class="n">b</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+  		<span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="k">break</span><span class="p">;</span>
+  		<span class="n">b</span> <span class="o">=</span> <span class="n">str</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">"]"</span><span class="p">,</span><span class="n">a</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+  		<span class="n">sum</span> <span class="o">+=</span> <span class="n">stoi</span><span class="p">(</span><span class="n">str</span><span class="p">.</span><span class="n">substr</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">b</span> <span class="o">-</span> <span class="n">a</span> <span class="o">-</span> <span class="mi">1</span><span class="p">));</span>
+  	<span class="p">}</span>
+  	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">sum</span><span class="p">;</span>
+  <span class="p">}</span>
+</code></pre></div>    </div>
+
+    <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1">//ABC 개수 출력</span>
+    
+  <span class="cp">#include &lt;iostream&gt;
+</span>  <span class="cp">#include &lt;string&gt;
+</span>  <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+    
+  <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  	<span class="n">string</span> <span class="n">str</span> <span class="o">=</span> <span class="s">"ABCSFWABCDJSABCD"</span><span class="p">;</span>
+  	<span class="kt">int</span> <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  	<span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+  	<span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+  		<span class="n">a</span> <span class="o">=</span> <span class="n">str</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">"ABC"</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+  		<span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="k">break</span><span class="p">;</span>
+  		<span class="n">cnt</span><span class="o">++</span><span class="p">;</span>
+  	<span class="p">}</span>
+  	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">cnt</span><span class="p">;</span>
+  <span class="p">}</span>
+</code></pre></div>    </div>
+
+    <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1">//string 배열에서 GOLD 개수 출력</span>
+    
+  <span class="cp">#include &lt;iostream&gt;
+</span>  <span class="cp">#include &lt;string&gt;
+</span>  <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+    
+  <span class="kt">int</span> <span class="nf">parsing</span><span class="p">(</span><span class="n">string</span> <span class="n">input</span><span class="p">)</span> <span class="p">{</span>
+  	<span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+  	<span class="kt">int</span> <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  	<span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+  		<span class="n">a</span> <span class="o">=</span> <span class="n">input</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">"GOLD"</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+  		<span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="k">break</span><span class="p">;</span>
+  		<span class="n">cnt</span><span class="o">++</span><span class="p">;</span>
+  	<span class="p">}</span>
+  	<span class="k">return</span> <span class="n">cnt</span><span class="p">;</span>
+  <span class="p">}</span>
+    
+  <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  	<span class="n">string</span> <span class="n">str</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="s">"GOLDABGOLD"</span><span class="p">,</span><span class="s">"GOLDTTTT"</span><span class="p">,</span><span class="s">"AGOLDGOLD"</span><span class="p">,</span><span class="s">"GOLDTTTT"</span> <span class="p">};</span>
+  	<span class="kt">int</span> <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+  		<span class="n">cnt</span><span class="o">+=</span><span class="n">parsing</span><span class="p">(</span><span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+  	<span class="p">}</span>
+  	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">cnt</span><span class="p">;</span>
+  <span class="p">}</span>
+</code></pre></div>    </div>
+
+    <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1">//string에서 target들의 빈출 정도 출력</span>
+  <span class="c1">//어떤 기능을 함수로 뺄지 고민하기</span>
+    
+  <span class="cp">#include &lt;iostream&gt;
+</span>  <span class="cp">#include &lt;string&gt;
+</span>  <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+    
+  <span class="kt">int</span> <span class="nf">parsing</span><span class="p">(</span><span class="n">string</span> <span class="n">input</span><span class="p">,</span> <span class="n">string</span> <span class="n">target</span><span class="p">)</span> <span class="p">{</span>
+  	<span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  	<span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+  		<span class="n">a</span> <span class="o">=</span> <span class="n">input</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+  		<span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="k">break</span><span class="p">;</span>
+  		<span class="n">cnt</span><span class="o">++</span><span class="p">;</span>
+  	<span class="p">}</span>
+  	<span class="k">return</span> <span class="n">cnt</span><span class="p">;</span>
+  <span class="p">}</span>
+    
+  <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  	<span class="n">string</span> <span class="n">str</span> <span class="o">=</span> <span class="s">"ABCSDKFCABCWABCSSD"</span><span class="p">;</span>
+  	<span class="n">string</span> <span class="n">target</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
+  	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">target</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+  	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+  		<span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">parsing</span><span class="p">(</span><span class="n">str</span><span class="p">,</span> <span class="n">target</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">&lt;&lt;</span><span class="s">" "</span><span class="p">;</span>
+  	<span class="p">}</span>
+  <span class="p">}</span>
+</code></pre></div>    </div>
+
+    <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1">//두 문자열 A,B 중 짧은 문자열이 긴 문자열 안에 몇 번 나타나는지 출력</span>
+    
+  <span class="cp">#include &lt;iostream&gt;
+</span>  <span class="cp">#include &lt;string&gt;
+</span>  <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+    
+  <span class="kt">int</span> <span class="nf">parsing</span><span class="p">(</span><span class="n">string</span> <span class="n">input</span><span class="p">,</span> <span class="n">string</span> <span class="n">target</span><span class="p">)</span> <span class="p">{</span>
+  	<span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  	<span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+  		<span class="n">a</span> <span class="o">=</span> <span class="n">input</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+  		<span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="k">break</span><span class="p">;</span>
+  		<span class="n">cnt</span><span class="o">++</span><span class="p">;</span>
+  	<span class="p">}</span>
+  	<span class="k">return</span> <span class="n">cnt</span><span class="p">;</span>
+  <span class="p">}</span>
+    
+  <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  	<span class="n">string</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">;</span>
+  	<span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">A</span> <span class="o">&gt;&gt;</span> <span class="n">B</span><span class="p">;</span>
+  	<span class="k">if</span> <span class="p">(</span><span class="n">A</span><span class="p">.</span><span class="n">length</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">B</span><span class="p">.</span><span class="n">length</span><span class="p">())</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">parsing</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">);</span>
+  	<span class="k">else</span> <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">parsing</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">A</span><span class="p">);</span>
+  <span class="p">}</span>
+</code></pre></div>    </div>
+
+    <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1">//2개의 # 이외의 문자열 출력</span>
+    
+  <span class="cp">#include &lt;iostream&gt;
+</span>  <span class="cp">#include &lt;string&gt;
+</span>  <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+    
+  <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  	<span class="n">string</span> <span class="n">str</span> <span class="o">=</span> <span class="s">"AB#BTTR#KKKK"</span><span class="p">;</span>
+    
+  	<span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="n">str</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">"#"</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+  	<span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="n">str</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">"#"</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+    
+  	<span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">str</span><span class="p">.</span><span class="n">substr</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span><span class="o">&lt;&lt;</span><span class="s">" "</span><span class="p">;</span>
+  	<span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">str</span><span class="p">.</span><span class="n">substr</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="o">-</span><span class="n">a</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">&lt;&lt;</span><span class="s">" "</span><span class="p">;</span>
+  	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">str</span><span class="p">.</span><span class="n">substr</span><span class="p">(</span><span class="n">b</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">str</span><span class="p">.</span><span class="n">length</span><span class="p">()</span> <span class="o">-</span> <span class="n">b</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+  <span class="p">}</span>
+</code></pre></div>    </div>
+
+    <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1">//n개의 [] 사이의 문자열 출력 </span>
+    
+  <span class="cp">#include &lt;iostream&gt;
+</span>  <span class="cp">#include &lt;string&gt;
+</span>  <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+    
+  <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  	<span class="n">string</span> <span class="n">str</span> <span class="o">=</span> <span class="s">"ABC[BTS]KK[KFC]GGR[TT][11]"</span><span class="p">;</span>
+  	<span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="o">=-</span><span class="mi">1</span><span class="p">;</span>
+  	<span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+  		<span class="n">a</span> <span class="o">=</span> <span class="n">str</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">"["</span><span class="p">,</span><span class="n">a</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+  		<span class="n">b</span> <span class="o">=</span> <span class="n">str</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">"]"</span><span class="p">,</span><span class="n">b</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+  		<span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="k">break</span><span class="p">;</span>
+  		<span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">str</span><span class="p">.</span><span class="n">substr</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="o">-</span><span class="n">a</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">&lt;&lt;</span><span class="s">" "</span><span class="p">;</span>
+  	<span class="p">}</span>
+  <span class="p">}</span>
+</code></pre></div>    </div>
+
+    <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1">// | 기준 파싱하여 출력</span>
+    
+  <span class="cp">#include &lt;iostream&gt;
+</span>  <span class="cp">#include &lt;string&gt;
+</span>  <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+    
+  <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  	<span class="n">string</span> <span class="n">str</span><span class="p">;</span>
+  	<span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">str</span><span class="p">;</span>  <span class="c1">//1942|1995|87</span>
+  	<span class="n">str</span><span class="o">+=</span><span class="s">"|"</span><span class="p">;</span>
+  	<span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span><span class="n">b</span><span class="o">=-</span><span class="mi">1</span><span class="p">;</span>
+  	<span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+  		<span class="n">b</span> <span class="o">=</span> <span class="n">str</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">"|"</span><span class="p">,</span> <span class="n">a</span><span class="p">);</span>
+  		<span class="k">if</span> <span class="p">(</span><span class="n">b</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="k">break</span><span class="p">;</span>
+  		<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">str</span><span class="p">.</span><span class="n">substr</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">-</span><span class="n">a</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">&lt;&lt;</span><span class="s">" "</span><span class="p">;</span>
+  		<span class="n">a</span><span class="o">=</span><span class="n">b</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+  	<span class="p">}</span>
+  <span class="p">}</span>
+</code></pre></div>    </div>
+
+    <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1">// split(결과배열, 결과배열인덱스, 문자열, 기준이 될 문자열)</span>
+  <span class="c1">// string을 기준으로 잘라서 vect 배열에 넣는 함수 구현    </span>
+    
+  <span class="kt">void</span> <span class="nf">split</span><span class="p">(</span><span class="n">string</span> <span class="n">result</span><span class="p">[],</span> <span class="kt">int</span><span class="o">&amp;</span> <span class="n">rn</span><span class="p">,</span> <span class="n">string</span> <span class="n">str</span><span class="p">,</span> <span class="n">string</span> <span class="n">tar</span><span class="p">)</span> <span class="p">{</span>
+  	<span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  	<span class="n">str</span> <span class="o">+=</span> <span class="n">tar</span><span class="p">;</span>
+  	<span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+  		<span class="n">b</span> <span class="o">=</span> <span class="n">str</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">tar</span><span class="p">,</span> <span class="n">a</span><span class="p">);</span>
+  		<span class="k">if</span> <span class="p">(</span><span class="n">b</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="k">break</span><span class="p">;</span>
+  		<span class="n">result</span><span class="p">[</span><span class="n">rn</span><span class="o">++</span><span class="p">]</span><span class="o">=</span><span class="n">str</span><span class="p">.</span><span class="n">substr</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">);</span>
+  		<span class="n">a</span> <span class="o">=</span> <span class="n">b</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+  	<span class="p">}</span>
+  <span class="p">}</span>
+    
+  <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  	<span class="n">string</span> <span class="n">str</span> <span class="o">=</span> <span class="s">"ID|SDFAS|DFS|DD"</span><span class="p">;</span>
+  	<span class="kt">int</span> <span class="n">rn</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  	<span class="n">string</span> <span class="n">result</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+  	<span class="n">split</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">rn</span><span class="p">,</span> <span class="n">str</span><span class="p">,</span> <span class="s">"|"</span><span class="p">);</span>
+  	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+  		<span class="k">if</span> <span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s">""</span><span class="p">)</span><span class="k">break</span><span class="p">;</span>
+  		<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">result</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span><span class="p">;</span>
+  	<span class="p">}</span>
+  <span class="p">}</span>
+</code></pre></div>    </div>
+
+    <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1">// - 사이에 있는 수들의 합 출력</span>
+    
+  <span class="cp">#include &lt;iostream&gt;
+</span>  <span class="cp">#include &lt;string&gt;
+</span>  <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+    
+  <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  	<span class="n">string</span> <span class="n">str</span> <span class="o">=</span> <span class="s">"12-3342-1-3-12"</span><span class="p">;</span>
+  	<span class="n">str</span> <span class="o">+=</span> <span class="s">"-"</span><span class="p">;</span>
+  	<span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  	<span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+  		<span class="n">b</span> <span class="o">=</span> <span class="n">str</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">"-"</span><span class="p">,</span> <span class="n">a</span><span class="p">);</span>
+  		<span class="k">if</span> <span class="p">(</span><span class="n">b</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="k">break</span><span class="p">;</span>
+  		<span class="n">sum</span><span class="o">+=</span><span class="n">stoi</span><span class="p">(</span><span class="n">str</span><span class="p">.</span><span class="n">substr</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">));</span>
+  		<span class="n">a</span> <span class="o">=</span> <span class="n">b</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+  	<span class="p">}</span>
+  	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">sum</span><span class="p">;</span>
+  <span class="p">}</span>
+</code></pre></div>    </div>
+
+    <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1">// : , 사이의 숫자 파싱 후 합 구하기</span>
+    
+  <span class="cp">#include &lt;iostream&gt;
+</span>  <span class="cp">#include &lt;string&gt;
+</span>  <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+    
+  <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  	<span class="n">string</span> <span class="n">str</span> <span class="o">=</span> <span class="s">"ID:48,BTS:56,HHHTT:99"</span><span class="p">;</span>
+  	<span class="n">str</span> <span class="o">+=</span> <span class="s">","</span><span class="p">;</span>
+  	<span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">sum</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+  	<span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+  		<span class="n">a</span> <span class="o">=</span> <span class="n">str</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">":"</span><span class="p">,</span><span class="n">a</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+  		<span class="n">b</span> <span class="o">=</span> <span class="n">str</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">","</span><span class="p">,</span><span class="n">b</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+  		<span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="k">break</span><span class="p">;</span>
+  		<span class="n">sum</span> <span class="o">+=</span> <span class="n">stoi</span><span class="p">(</span><span class="n">str</span><span class="p">.</span><span class="n">substr</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">b</span> <span class="o">-</span> <span class="n">a</span> <span class="o">-</span> <span class="mi">1</span><span class="p">));</span>
+  	<span class="p">}</span>
+  	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">sum</span><span class="p">;</span>
+  <span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>C 문자열 ↔ C++ string</p>
+
+    <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1">//C 문자열 -&gt; C++ string</span>
+  <span class="kt">char</span> <span class="n">buf</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="o">=</span><span class="s">"ASD"</span><span class="p">;</span>
+  <span class="n">string</span> <span class="n">str</span><span class="o">=</span><span class="n">buf</span><span class="p">;</span> <span class="c1">// = string(buf)</span>
+    
+  <span class="c1">//C++ string -&gt; C 문자열</span>
+  <span class="n">str</span><span class="p">.</span><span class="n">c_str</span><span class="p">();</span>
+  <span class="n">strcpy</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="n">str</span><span class="p">.</span><span class="n">c_str</span><span class="p">());</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>string ↔ int</p>
+
+    <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">string</span> <span class="n">str</span><span class="o">=</span><span class="s">"2342"</span><span class="p">;</span>
+    
+  <span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">stoi</span><span class="p">(</span><span class="n">str</span><span class="p">);</span> <span class="c1">//string "234" -&gt; integer 234</span>
+  <span class="n">string</span> <span class="n">s</span><span class="o">=</span><span class="n">to_string</span><span class="p">(</span><span class="n">i</span><span class="p">);</span> <span class="c1">//integer 234 -&gt; string "234"</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>String의 method : erase(), insert() → replace구현</p>
+
+    <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">string</span> <span class="n">str</span> <span class="o">=</span> <span class="s">"ABCEFDG"</span><span class="p">;</span>
+  <span class="n">str</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="c1">//3번 인덱스에 2글자를 지움</span>
+  <span class="n">str</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s">"&lt;HI&gt;"</span><span class="p">)</span> <span class="c1">//1번 인덱스에 &lt;HI&gt; 글자를 넣음</span>
+</code></pre></div>    </div>
+
+    <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1">// replace 함수 구현 (=문자열 대체 함수)</span>
+    
+  <span class="c1">// 실습 : KFC 를 ***로 대체하기</span>
+    
+  <span class="n">string</span> <span class="n">str</span> <span class="o">=</span> <span class="s">"ABCKFC__KFC"</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+  	<span class="n">b</span> <span class="o">=</span> <span class="n">str</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">"KFC"</span><span class="p">,</span> <span class="n">a</span><span class="p">);</span>
+  	<span class="k">if</span> <span class="p">(</span><span class="n">b</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="k">break</span><span class="p">;</span>
+  	<span class="n">str</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+  	<span class="n">str</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="s">"***"</span><span class="p">);</span>
+  	<span class="n">a</span> <span class="o">=</span> <span class="n">b</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>유효성 검사</p>
+
+    <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="err">유효성</span> <span class="err">검사</span> <span class="p">(</span><span class="n">Valid</span> <span class="n">Check</span><span class="p">)</span>
+  <span class="err">허용되는</span> <span class="err">문자열</span> <span class="err">검사</span> <span class="p">(</span><span class="err">후</span> <span class="err">파싱</span><span class="p">)</span>
+  <span class="n">ex</span><span class="p">.</span> <span class="err">비밀번호</span> <span class="err">유효한지</span> <span class="err">검사</span>
+    
+  <span class="err">함수로</span> <span class="err">뺴고</span> <span class="err">조건마다</span> <span class="k">return</span> <span class="err">시키기</span>
+    
+  <span class="n">AB</span><span class="o">&lt;&lt;&lt;</span><span class="mi">14</span><span class="o">&gt;&gt;&lt;&gt;&gt;&lt;&lt;</span><span class="mi">123</span><span class="o">&gt;</span> <span class="p">(</span><span class="n">X</span><span class="p">)</span>
+  <span class="n">AB</span><span class="o">&lt;</span><span class="mi">132</span><span class="o">&gt;</span><span class="n">BT</span><span class="o">&lt;</span><span class="mi">142</span><span class="o">&gt;</span> <span class="p">(</span><span class="n">O</span><span class="p">)</span>
+</code></pre></div>    </div>
+
+    <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1">// 유효성 검사 실습</span>
+    
+  <span class="c1">// 2~5글자 허용</span>
+  <span class="c1">// 특수문자 1개까지 허용</span>
+  <span class="c1">// 대문자 불가</span>
+    
+  <span class="cp">#include &lt;iostream&gt;
+</span>  <span class="cp">#include &lt;string&gt;
+</span>  <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+    
+  <span class="kt">bool</span> <span class="nf">isValid</span><span class="p">(</span><span class="n">string</span> <span class="n">str</span><span class="p">)</span> <span class="p">{</span>
+  	<span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="n">str</span><span class="p">.</span><span class="n">length</span><span class="p">();</span>
+  	<span class="kt">int</span> <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  	<span class="c1">// 2~5글자 허용</span>
+  	<span class="k">if</span> <span class="p">(</span><span class="n">len</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="o">||</span> <span class="n">len</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">)</span><span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+  	<span class="c1">// 특수문자 1개까지 허용</span>
+  	<span class="c1">// 대문자 불가</span>
+  	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">len</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+  		<span class="k">if</span> <span class="p">(</span><span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="sc">'0'</span> <span class="o">&amp;&amp;</span> <span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="sc">'9'</span><span class="p">)</span><span class="n">cnt</span> <span class="o">=</span> <span class="n">cnt</span><span class="p">;</span>
+  		<span class="k">else</span> <span class="k">if</span><span class="p">(</span> <span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&gt;=</span><span class="sc">'a'</span><span class="o">&amp;&amp;</span><span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="sc">'z'</span><span class="p">)</span> <span class="n">cnt</span> <span class="o">=</span> <span class="n">cnt</span><span class="p">;</span>
+  		<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&gt;=</span><span class="sc">'A'</span><span class="o">&amp;&amp;</span><span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="sc">'Z'</span><span class="p">)</span><span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+  		<span class="k">else</span> <span class="n">cnt</span><span class="o">++</span><span class="p">;</span>
+  		<span class="k">if</span> <span class="p">(</span><span class="n">cnt</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span><span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+  	<span class="p">}</span>
+  	<span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+  <span class="p">}</span>
+    
+  <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  	<span class="n">string</span> <span class="n">str</span><span class="p">;</span>
+  	<span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">str</span><span class="p">;</span>
+  	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">isValid</span><span class="p">(</span><span class="n">str</span><span class="p">);</span>
+  <span class="p">}</span>
+</code></pre></div>    </div>
+
+    <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1">// 유효성 검사 실습 = 네이버 신입사원 기출문제</span>
+    
+  <span class="c1">//이름@도메인.탑레벨도메인</span>
+  <span class="c1">//이름 : 영어 소문자 &amp; .</span>
+  <span class="c1">//도메인 : 영어 소문자</span>
+  <span class="c1">//탑레벨도메인 : com, net, org</span>
+    
+  <span class="cp">#include &lt;iostream&gt;
+</span>  <span class="cp">#include &lt;string&gt;
+</span>  <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+    
+  <span class="kt">int</span> <span class="nf">solution</span><span class="p">(</span><span class="n">string</span> <span class="n">str</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="kt">int</span> <span class="n">strLen</span><span class="p">)</span> <span class="p">{</span>
+    
+  <span class="p">}</span>
+    
+  <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  	<span class="n">string</span> <span class="n">str</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
+  	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    
+  	<span class="p">}</span>
+  <span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+	</div>
+</article>
+		</div>
+	</div>
+  </body>
+</html>
