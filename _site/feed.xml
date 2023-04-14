@@ -1,4 +1,94 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-04-12T19:31:45+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Monos</title><subtitle>Themed by ejjoo</subtitle><entry><title type="html">[WslRegisterDistribution failed with error: 0x80370114] wsl로 ubuntu 설치 시 발생하는 오류</title><link href="http://localhost:4000/issue/2023/04/12/Issue-WslRegisterDistribution.html" rel="alternate" type="text/html" title="[WslRegisterDistribution failed with error: 0x80370114] wsl로 ubuntu 설치 시 발생하는 오류" /><published>2023-04-12T18:15:32+09:00</published><updated>2023-04-12T18:15:32+09:00</updated><id>http://localhost:4000/issue/2023/04/12/Issue-WslRegisterDistribution</id><content type="html" xml:base="http://localhost:4000/issue/2023/04/12/Issue-WslRegisterDistribution.html">&lt;p&gt;깃헙 블로그를 개설하며 생겼던 이슈사항을 포스팅해볼게요!&lt;br /&gt;&lt;br /&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-04-14T10:11:47+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Monos</title><subtitle>Themed by ejjoo</subtitle><entry><title type="html">[Jekyll 설치 시 발생하는 오류들] You don’t have write permissions for the /var/lib/gems/3.0.0 directory.</title><link href="http://localhost:4000/issue/2023/04/14/Issue-installJekyll.html" rel="alternate" type="text/html" title="[Jekyll 설치 시 발생하는 오류들] You don't have write permissions for the /var/lib/gems/3.0.0 directory." /><published>2023-04-14T09:26:23+09:00</published><updated>2023-04-14T09:26:23+09:00</updated><id>http://localhost:4000/issue/2023/04/14/Issue-installJekyll</id><content type="html" xml:base="http://localhost:4000/issue/2023/04/14/Issue-installJekyll.html">&lt;p&gt;안녕하세요! 깃헙 블로그를 만들며 생겼던 오류 2탄입니다! 이번에는 블로그에 테마를 입히기 위한 Jekyll을 설치할 때 생긴 오류들입니다~ (자잘한 이슈들부터 하나씩 적을게요!)
+&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;참고로 저는 &lt;a href=&quot;https://supermemi.tistory.com/entry/%EB%82%98%EB%A7%8C%EC%9D%98-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0-Git-hub-blog-GitHubio?category=997749&quot;&gt;SuperMemi’s Study님의 깃헙 블로그 만들기&lt;/a&gt; 의 3단계를 따라가며 만들었습니다! 여기서는 2번째 단계 실행 시 발생한 이슈입니다~!
+&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;0-먼저-gem과-bundler와-gemfile에-대해-모르신다면-이-블로그를-읽어보세요&quot;&gt;0. 먼저, &lt;code class=&quot;highlighter-rouge&quot;&gt;gem&lt;/code&gt;과 &lt;code class=&quot;highlighter-rouge&quot;&gt;bundler&lt;/code&gt;와 &lt;code class=&quot;highlighter-rouge&quot;&gt;gemfile&lt;/code&gt;에 대해 모르신다면 이 블로그를 읽어보세요!&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://ideveloper2.tistory.com/80&quot;&gt;https://ideveloper2.tistory.com/80&lt;/a&gt;
+&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;1-ruby-패키지-관리자-설치-시-오류-발생&quot;&gt;1. ruby 패키지 관리자 설치 시 오류 발생&lt;/h3&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;ruby-rubygems
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;→ &lt;strong&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Unable to fetch some archives, maybe run apt-get update or try with --fix-missing?&lt;/code&gt;&lt;/strong&gt; 오류 메세지 발생
+&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get update
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;→ &lt;code class=&quot;highlighter-rouge&quot;&gt;apt-get&lt;/code&gt;을 업데이트하여 해결
+&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;참고로, ruby-rubygems은 ruby 패키지 관리자 (js의 npm 같은 것)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;2-bundler-설치-시-오류-발생&quot;&gt;2. bundler 설치 시 오류 발생&lt;/h3&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gem &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;bundler
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;→ &lt;strong&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;You don't have write permissions for the /var/lib/gems/3.0.0 directory.&lt;/code&gt;&lt;/strong&gt; 오류 메세지 발생
+&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;gem &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;bundler
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;→ sudo (루트 권리로 실행) 를 사용하여 해결
+&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;→ 하지만, sudo를 사용하면 모든 프로젝트에 적용된다는 단점이 있음
+&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;→ 추천하는 해결법 : 기존 ruby를 삭제하고, rbenv(ruby 버전 관리)와 ruby-build를 이용하여 ruby 재설치
+&lt;br /&gt;
+다음 링크를 참조 : &lt;a href=&quot;https://stackoverflow.com/questions/37720892/you-dont-have-write-permissions-for-the-var-lib-gems-2-3-0-directory&quot;&gt;rbenv와 ruby-build를 이용하기 (by. stackoverflow)&lt;/a&gt;
+&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;3-jekyll-설치-시-오류-발생&quot;&gt;3. jekyll 설치 시 오류 발생&lt;/h3&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gem &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;jekyll
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;→ &lt;strong&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;error installing jekyll: error: failed to build gem native extension.&lt;/code&gt;&lt;/strong&gt; 오류 메세지 발생
+&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;ruby-full build-essential zlib1g-dev
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;→ jekyll 설치에 필요한 파일 실행하여 해결
+&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;a href=&quot;https://jekyllrb.com/docs/installation/ubuntu/&quot;&gt;jekyll 공식문서&lt;/a&gt;를 참고함&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;4-bundler로-gem-파일-설치-시-오류-발생&quot;&gt;4. bundler로 gem 파일 설치 시 오류 발생&lt;/h3&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bundle &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;→ &lt;strong&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;You don't have write permissions for the /var/lib/gems/3.0.0 directory.&lt;/code&gt;&lt;/strong&gt; 오류 메세지 발생
+&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;→ 아까와 같은 방법으로 해결 (위에서 이미 했다면 오류 안뜰 것) : 기존 ruby를 삭제하고, rbenv(ruby 버전 관리)와 ruby-build를 이용하여 ruby 재설치
+&lt;br /&gt;
+다음 링크를 참조 : &lt;a href=&quot;https://stackoverflow.com/questions/37720892/you-dont-have-write-permissions-for-the-var-lib-gems-2-3-0-directory&quot;&gt;rbenv와 ruby-build를 이용하기 (by. stackoverflow)&lt;/a&gt;
+&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;&lt;br /&gt;
+그럼 안녕~&lt;/p&gt;</content><author><name></name></author><category term="Jekyll" /><category term="Ubuntu" /><summary type="html">gem install bundler 또는 bundle install 실행 시 발생하는 오류로, rbenv와 ruby-build를 이용하여 해결하자.</summary></entry><entry><title type="html">[WslRegisterDistribution failed with error: 0x80370114] wsl로 ubuntu 설치 시 발생하는 오류</title><link href="http://localhost:4000/issue/2023/04/12/Issue-WslRegisterDistribution.html" rel="alternate" type="text/html" title="[WslRegisterDistribution failed with error: 0x80370114] wsl로 ubuntu 설치 시 발생하는 오류" /><published>2023-04-12T18:15:32+09:00</published><updated>2023-04-12T18:15:32+09:00</updated><id>http://localhost:4000/issue/2023/04/12/Issue-WslRegisterDistribution</id><content type="html" xml:base="http://localhost:4000/issue/2023/04/12/Issue-WslRegisterDistribution.html">&lt;p&gt;깃헙 블로그를 개설하며 생겼던 이슈사항을 포스팅해볼게요!&lt;br /&gt;&lt;br /&gt;
 참고로 저는 &lt;a href=&quot;https://supermemi.tistory.com/entry/%EB%82%98%EB%A7%8C%EC%9D%98-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0-Git-hub-blog-GitHubio?category=997749&quot;&gt;SuperMemi’s Study님의 깃헙 블로그 만들기&lt;/a&gt; 3단계를 따라가며 만들었습니다!&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
