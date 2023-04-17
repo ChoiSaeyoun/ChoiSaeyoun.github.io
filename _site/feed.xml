@@ -1,4 +1,18 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-04-14T19:19:46+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">GreenPickle’s Story</title><subtitle>Managed by saeyoun</subtitle><entry><title type="html">[c++ 알고리즘 공부] String Parsing</title><link href="http://localhost:4000/algorithm/2023/04/14/c++-algorithm-study-String-Parsing.html" rel="alternate" type="text/html" title="[c++ 알고리즘 공부] String Parsing" /><published>2023-04-14T19:14:17+09:00</published><updated>2023-04-14T19:14:17+09:00</updated><id>http://localhost:4000/algorithm/2023/04/14/%5Bc++%20algorithm%20study%5D%20String%20Parsing</id><content type="html" xml:base="http://localhost:4000/algorithm/2023/04/14/c++-algorithm-study-String-Parsing.html">&lt;h2 id=&quot;level-24-25&quot;&gt;LEVEL 24 25&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-04-17T20:41:20+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">GreenPickle’s Story</title><subtitle>Managed by saeyoun</subtitle><entry><title type="html">[Daily Story] 23년 4월 17일의 공부</title><link href="http://localhost:4000/daily/2023/04/17/daily-study.html" rel="alternate" type="text/html" title="[Daily Story] 23년 4월 17일의 공부" /><published>2023-04-17T20:31:29+09:00</published><updated>2023-04-17T20:31:29+09:00</updated><id>http://localhost:4000/daily/2023/04/17/daily-study</id><content type="html" xml:base="http://localhost:4000/daily/2023/04/17/daily-study.html">&lt;p&gt;이 카테고리는 매일의 일상 기록이다.&lt;br /&gt;
+어떤 공부를 했거나, 어떤 사람을 만났거나, 어떤 것을 먹었거나, 어떤 것을 읽었거나, 어떤 것을 느꼈는지에 대한 하루를 기록하는 공간이 될 것이다.&lt;br /&gt;
+그날을 기억할 수 있는 다양한 사진도 첨부할 예정이다.
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;오늘-한-공부&quot;&gt;오늘 한 공부&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;level 32 숙제 풀기 및 깃커밋_7문제 (3h)&lt;/li&gt;
+  &lt;li&gt;SWEA 1206번 풀기 (1h)&lt;/li&gt;
+  &lt;li&gt;html 2파트 읽기 및 정리 (2h 30m)&lt;/li&gt;
+  &lt;li&gt;블로그 4번째 글 포스팅 (ing)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;(추후 사진 첨부할 예정)&lt;/p&gt;</content><author><name></name></author><summary type="html">이 카테고리는 매일의 일상 기록이다. 어떤 공부를 했거나, 어떤 사람을 만났거나, 어떤 것을 먹었거나, 어떤 것을 읽었거나, 어떤 것을 느꼈는지에 대한 하루를 기록하는 공간이 될 것이다. 그날을 기억할 수 있는 다양한 사진도 첨부할 예정이다.</summary></entry><entry><title type="html">[c++ 알고리즘 공부] String Parsing</title><link href="http://localhost:4000/algorithm/2023/04/14/c++-algorithm-study-String-Parsing.html" rel="alternate" type="text/html" title="[c++ 알고리즘 공부] String Parsing" /><published>2023-04-14T19:14:17+09:00</published><updated>2023-04-14T19:14:17+09:00</updated><id>http://localhost:4000/algorithm/2023/04/14/%5Bc++%20algorithm%20study%5D%20String%20Parsing</id><content type="html" xml:base="http://localhost:4000/algorithm/2023/04/14/c++-algorithm-study-String-Parsing.html">&lt;h2 id=&quot;level-24-25&quot;&gt;LEVEL 24 25&lt;/h2&gt;
 
 &lt;p&gt;LANGUAGE: C++
 OVERVIEW: Parsing&lt;/p&gt;
