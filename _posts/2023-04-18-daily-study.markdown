@@ -18,9 +18,9 @@ MDN에서 말한대로 문제가 막힐 때는 그것을 계속 붙잡고 있는
 - 블로그 5번째 글 포스팅 (ing)
 
 <br>
-다음은
+다음은 사진이다.
 <br>
 
-![](../assets/images/postImages/2023-04-18-1.jpeg)
-![](../assets/images/postImages/2023-04-18-2.jpeg)
-![](../assets/images/postImages/2023-04-18-3.jpeg)
+![](../_site/assets/images/2023-04-18-1.jpeg)
+![](../_site/assets/images/2023-04-18-2.jpeg)
+![](../_site/assets/images/2023-04-18-3.jpeg)

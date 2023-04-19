@@ -17,7 +17,7 @@ tags: [WSL, Ubuntu]
 ```bash
 wsl --install -d Ubuntu
 ```
-![](/assets/images/postImages/2023-04-12-1.png)
+![](../_site/assets/images/2023-04-12-1.png)
 
 → 설치 실패<br><br><br>
 
@@ -59,7 +59,7 @@ wsl --install -d Ubuntu
 
 → "~~~ Enter new UNIX username" 결과 출력 (설치 성공)
 
-![](/assets/images/postImages/2023-04-12-2.png)
+![](../_site/assets/images/2023-04-12-2.png)
 
 > 참고로, UNIX username은 1~32자 사이의 소문자 알파벳, 숫자, 밑줄(_), 하이픈(-)으로만 이루어져야 하며, 첫 글자는 반드시 소문자 알파벳이어야 한다. (정규표현식 : ^[a-z][a-z0-9_-]{0,31}$)
 
